@@ -10,4 +10,5 @@ public class RelaxSO : ScriptableObject
     private Result result;
 
     public Result Result { get => result; }
+    public string Text { get => text; }
 }
