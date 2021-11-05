@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Joke : ScriptableObject
+[CreateAssetMenu]
+public class JokeCatalogSO : ScriptableObject
 {
     private List<JokeSO> jokeList;
 

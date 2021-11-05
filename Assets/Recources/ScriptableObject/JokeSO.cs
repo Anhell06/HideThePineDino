@@ -10,4 +10,5 @@ public class JokeSO : ScriptableObject
     private string forPublic;
 
     public Result GetResult { get => result;}
+    public string Text { get => text;}
 }
