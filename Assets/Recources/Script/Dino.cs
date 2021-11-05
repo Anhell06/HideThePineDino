@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Dino
@@ -8,11 +6,9 @@ public class Dino
     private int helth;
     private int stress;
     private int currentPlace;
-    public Iplace SetCurrentPlace
-    {
-        get => currentPlace;
-        set => currentPlace = (int) Place.Bar;
-    }
+
+    public Place CurrentPlace { get => (Place) currentPlace; set => currentPlace = (int)value; }
+
 
     public void GetData(out int money, out int helth, out int stress)
     {
@@ -39,14 +35,14 @@ public class Dino
 
 }
 
-enum SaveKey
+public enum SaveKey
 {
     money,
     helth,
     stress,
     currentPlace
 }
-enum Place
+public enum Place
 { 
     Bar,
     Home
