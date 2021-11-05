@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine.UI;
 
+[Serializable]
 public class ButtonPushed
 {
     private readonly Iplace place;
