@@ -9,10 +9,14 @@ public class GameFactory : MonoBehaviour
 {
     private Dino dino;
     private Iplace place;
-    private LoadSystemSO loadSytem;
+    private ListTransformLevelSO loadSytem;
     private Transform prefPlace;
     private ButtonPushed buttonPushed;
     private IndicatorUpdater indicatorUpdater;
+    private Transform[] transforms = new Transform[3];
+    private Indicator[] indicators = new Indicator[3];
+    private int money, helth, stress;
+    private Button nextScen, exit;
 
     private void Start()
     {
@@ -21,8 +25,17 @@ public class GameFactory : MonoBehaviour
         CreatePlace();
         prefPlace = loadSytem.LoadPlace(dino.CurrentPlace);
         buttonPushed = new ButtonPushed(place, prefPlace.GetComponents<Button>());
-        indicatorUpdater = new IndicatorUpdater(prefPlace.GetComponents<Indicator>());
+        dino.GetData(out money, out helth, out stress);
+        prefPlace.GetComponents<Indicator>();
+        indicators = prefPlace.GetComponents<Indicator>();
+        for (int i = 0; i < indicators.Length; i++)
+        {
+            transforms[i] = indicators[i].transform;
+        }
+        indicatorUpdater = new IndicatorUpdater(money, helth, stress, transforms);
         buttonPushed.buttonDown += UpdateData;
+        nextScen.onClick.AddListener(LoadNextPlace);
+        exit.onClick.AddListener(Exit);
     }
 
     private void UpdateData(Result result)
@@ -51,6 +64,7 @@ public class GameFactory : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
     private void CreatePlace()
     {
         switch (dino.CurrentPlace)
@@ -64,6 +78,11 @@ public class GameFactory : MonoBehaviour
             default:
                 break;
         }
+    }
+    private void OnDestroy()
+    {
+        dino.SaveData();
+        buttonPushed.buttonDown -= UpdateData;
     }
 
 }

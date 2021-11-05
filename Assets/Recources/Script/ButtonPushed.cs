@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ButtonPushed
 {
     private readonly Iplace place;
-    private readonly Button[] buttons;
+    private readonly Button[] buttons = new Button[3];
     public Action<Result> buttonDown;
     public Text[] textButton;
 

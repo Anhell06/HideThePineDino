@@ -30,7 +30,7 @@ public class Dino
         money = PlayerPrefs.GetInt(SaveKey.money.ToString(), 0);
         helth =PlayerPrefs.GetInt(SaveKey.helth.ToString(), 70);
         stress = PlayerPrefs.GetInt(SaveKey.stress.ToString(), 30);
-        currentPlace = PlayerPrefs.GetInt(SaveKey.currentPlace.ToString());
+        currentPlace = PlayerPrefs.GetInt(SaveKey.currentPlace.ToString(), (int)Place.Bar);
     }
 
 }
