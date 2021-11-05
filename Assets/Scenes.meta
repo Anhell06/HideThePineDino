@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: f765f5e6d82f231489dd242da067f86c
+=======
+guid: 131a6b21c8605f84396be9f6751fb6e3
+>>>>>>> remotes/origin/Konstantin
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
