@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+=======
+>>>>>>> remotes/origin/Konstantin
 using System;
 
 [Serializable]
