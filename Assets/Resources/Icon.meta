@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/Room.unity.meta
+guid: c2ecc0625a8521d4baec435450c6e674
+=======
 guid: 611e0d573f2500b4a8bd8d68fdaf2b39
 folderAsset: yes
+>>>>>>> remotes/origin/Konstantin:Assets/Resources/Icon.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
