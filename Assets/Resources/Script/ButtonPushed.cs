@@ -1,21 +1,27 @@
 ﻿using System;
+using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
 public class ButtonPushed
 {
     private readonly Iplace place;
-    private readonly Button[] buttons = new Button[3];
+    private readonly Button[] buttons;
     public Action<Result> buttonDown;
-    public Text[] textButton;
+    public TMP_Text[] textButton = new TMP_Text[3];
 
     public ButtonPushed(Iplace place, Button[] buttons) 
     {
+        
         this.place = place;
         this.buttons = buttons;
-        for (int i = 0; i < buttons.Length - 1; i++)
+
+        Debug.Log(buttons.Length);
+        for (int i = 0; i < buttons.Length; i++)
         {
-            textButton[i] = buttons[i].GetComponent<Text>();
+
+            textButton[i] = buttons[i].GetComponentInChildren<TMP_Text>();
         }
         UpdateButton();
     }
@@ -28,8 +34,9 @@ public class ButtonPushed
     private void UpdateButton()
     {
         string[] texts = place.GetTextForButton();
-        for (int i = 0; i < buttons.Length - 1; i++)
+        for (int i = 0; i < buttons.Length ; i++)
         {
+
             textButton[i].text = texts[i];
         }
     }

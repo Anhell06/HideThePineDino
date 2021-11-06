@@ -18,6 +18,7 @@ public class GameFactory : MonoBehaviour
     private Indicator[] indicators = new Indicator[3];
     private int money, helth, stress;
     private Result tempResult;
+    private Button[] buttons;
     private Button nextScen, exit;
     private AnimatorResolver animatorResolver;
 
@@ -27,18 +28,19 @@ public class GameFactory : MonoBehaviour
         dino.LoadData();
         CreatePlace();
         prefPlace = loadSytem.LoadPlace(dino.CurrentPlace);
-        buttonPushed = new ButtonPushed(place, FindObjectsOfType<Button>());
+        buttons = FindObjectsOfType<Button>();
+        buttonPushed = new ButtonPushed(place, buttons);
         dino.GetData(out money, out helth, out stress);
-        prefPlace.GetComponents<Indicator>();
         indicators = FindObjectsOfType<Indicator>();
+        Debug.Log(indicators.Length);
         for (int i = 0; i < indicators.Length; i++)
         {
             transforms[i] = indicators[i].transform;
         }
         indicatorUpdater = new IndicatorUpdater(money, helth, stress, transforms);
         buttonPushed.buttonDown += UpdateData;
-        nextScen.onClick.AddListener(LoadNextPlace);
-        exit.onClick.AddListener(Exit);
+        //nextScen.onClick.AddListener(LoadNextPlace);
+        //exit.onClick.AddListener(Exit);
        // animatorResolver = new AnimatorResolver();
     }
 
