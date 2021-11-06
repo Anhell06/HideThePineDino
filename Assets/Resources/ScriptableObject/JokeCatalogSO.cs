@@ -4,6 +4,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class JokeCatalogSO : ScriptableObject
 {
+
+    [SerializeField]
     private List<JokeSO> jokeList;
 
     public JokeSO[] ReturnThreeRandomJoke()
