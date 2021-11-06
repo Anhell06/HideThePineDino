@@ -37,16 +37,3 @@ public class Dino
 
 }
 
-public enum SaveKey
-{
-    money,
-    helth,
-    stress,
-    currentPlace
-}
-public enum Place
-{ 
-    Bar,
-    Home
-}
-

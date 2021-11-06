@@ -1,19 +1,25 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameFactory : MonoBehaviour
 {
+    [SerializeField]
+    private ListTransformLevelSO loadSytem;
+
+
     private Dino dino;
     private Iplace place;
-    private ListTransformLevelSO loadSytem;
     private Transform prefPlace;
     private ButtonPushed buttonPushed;
     private IndicatorUpdater indicatorUpdater;
     private Transform[] transforms = new Transform[3];
     private Indicator[] indicators = new Indicator[3];
     private int money, helth, stress;
+    private Result tempResult;
     private Button nextScen, exit;
+    private AnimatorResolver animatorResolver;
 
     private void Start()
     {
@@ -33,12 +39,14 @@ public class GameFactory : MonoBehaviour
         buttonPushed.buttonDown += UpdateData;
         nextScen.onClick.AddListener(LoadNextPlace);
         exit.onClick.AddListener(Exit);
+        animatorResolver = new AnimatorResolver();
     }
 
     private void UpdateData(Result result)
     {
-        indicatorUpdater.UpdateIndicator(result);
+        indicatorUpdater.UpdateIndicator(tempResult);
     }
+
 
     private void LoadNextPlace()
     {
