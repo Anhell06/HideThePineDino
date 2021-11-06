@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class RelaxCatalogSO : ScriptableObject
 {
+    [SerializeField]
     private List<RelaxSO> relaxList;
 
     public RelaxSO[] ReturnThreeRandomRelax()

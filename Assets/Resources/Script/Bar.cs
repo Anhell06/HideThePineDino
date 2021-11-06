@@ -9,7 +9,8 @@ public class Bar : Iplace
     private JokeSO[] joke = new JokeSO[3];
     public Bar()
     {
-        jokeCatalog = Resources.Load<JokeCatalogSO>("ScriptableObject/ListJoke.asset");
+        jokeCatalog = Resources.Load<JokeCatalogSO>("ScriptableObject/ListJoke");
+        joke = jokeCatalog.ReturnThreeRandomJoke();
     }
     public string[] GetTextForButton()
     {

@@ -8,7 +8,8 @@ public class Home : Iplace
     private RelaxSO[] relax = new RelaxSO[3];
     public Home()
     {
-        relaxCatalog = Resources.Load<RelaxCatalogSO>("ScriptableObject/RelaxList.asset");
+        relaxCatalog = Resources.Load<RelaxCatalogSO>("ScriptableObject/RelaxList");
+        relax = relaxCatalog.ReturnThreeRandomRelax();
     }
     public string[] GetTextForButton()
     {
