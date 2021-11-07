@@ -53,18 +53,34 @@ public class IndicatorUpdater
         SetValue(indicatorMoney, result.changeMoney);
         SetValue(indicatorHealth, result.changeHelth);
         SetValue(indicatorStress, result.changeStress);
-        if (indicatorStress.value == 100 || indicatorHealth.value == 0)
+        if (indicatorStress.value == 100 )
         {
+            PlayerPrefs.SetString("Артур впал в непрекращающуюся депрессию", "lose");
+            EndGame?.Invoke(false);
+        }
+        if (indicatorHealth.value == 0)
+        {
+
+            PlayerPrefs.SetString("У вас больше нет сил играть на сцене", "lose");
+            EndGame?.Invoke(false);
+        }
+        if (indicatorMoney.value == 0)
+        {
+
+            PlayerPrefs.SetString("У вас больше не на что жить", "lose");
             EndGame?.Invoke(false);
         }
         if (indicatorMoney.value == 100)
         {
             EndGame?.Invoke(true);
         }
+        Debug.LogError(indicatorStress.value);
+        
     }
 
     private void SetValue(Slider slider, int value)
     {
+        Debug.Log(value);
         value += (int)slider.value;
 
         if (value > 100)

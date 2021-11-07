@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Drink
   m_EditorClassIdentifier: 
   AnimName: 
-  typeAnimation: 0
+  typeAnimation: 3
   animator: {fileID: 0}

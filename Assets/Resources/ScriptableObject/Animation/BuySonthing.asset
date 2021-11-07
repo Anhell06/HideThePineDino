@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BuySonthing
   m_EditorClassIdentifier: 
   AnimName: 
-  typeAnimation: 0
+  typeAnimation: 5
   animator: {fileID: 0}

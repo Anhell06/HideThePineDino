@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Wander
   m_EditorClassIdentifier: 
   AnimName: 
-  typeAnimation: 0
+  typeAnimation: 4
   animator: {fileID: 0}

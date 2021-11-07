@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Computer
   m_EditorClassIdentifier: 
   AnimName: 
-  typeAnimation: 0
+  typeAnimation: 1
   animator: {fileID: 0}
