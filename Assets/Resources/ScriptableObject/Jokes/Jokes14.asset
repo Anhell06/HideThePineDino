@@ -15,7 +15,7 @@ MonoBehaviour:
   result:
     changeMoney: 0
     changeHelth: 0
-    changeStress: 0
+    changeStress: 10
     typeAnimation: 0
   text: "\xAB\u041C\u0430\u0448\u0435\u0439 \u043A\u0430\u0448\u0438 \u043D\u0435
     \u0438\u0441\u043F\u043E\u0440\u0442\u0438\u0448\u044C\xBB,- \u043F\u0440\u0438\u0433\u043E\u0432\u0430\u0440\u0438\u0432\u0430\u043B\u0438

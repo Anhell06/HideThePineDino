@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: New Joke SO 11
   m_EditorClassIdentifier: 
   result:
-    changeMoney: 0
+    changeMoney: 20
     changeHelth: 0
-    changeStress: 0
+    changeStress: 15
     typeAnimation: 0
   text: "\u0421\u0435\u043C\u0438\u043D\u0430\u0440 \xAB\u041A\u0430\u043A \u043D\u0435
     \u0441\u0442\u0430\u0442\u044C \u0436\u0435\u0440\u0442\u0432\u043E\u0439 \u043C\u043E\u0448\u0435\u043D\u043D\u0438\u043A\u043E\u0432\xBB
