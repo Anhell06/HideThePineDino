@@ -7,5 +7,5 @@ public class AnimationForCatalog : ScriptableObject
 {
     public string AnimName;
     public animationType typeAnimation;
-    public Animation animator;
+    public GameObject animator;
 }

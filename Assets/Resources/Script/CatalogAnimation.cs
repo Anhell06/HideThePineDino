@@ -7,7 +7,7 @@ public class CatalogAnimation : ScriptableObject
 {
     [SerializeField]
     private List<AnimationForCatalog> animations;
-    private List<AnimationForCatalog> randomAnimation;
+    private List<AnimationForCatalog> randomAnimation = new List<AnimationForCatalog>();
 
     public AnimationForCatalog GetAnimation(animationType type)
     {

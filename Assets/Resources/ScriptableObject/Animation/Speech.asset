@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197e2809a7fa2f046b71583f8df78f8e, type: 3}
   m_Name: Speech
   m_EditorClassIdentifier: 
-  AnimName: 
+  AnimName: 123
   typeAnimation: 0
-  animator: {fileID: 0}
+  animator: {fileID: 1689382403397504965, guid: ecb3603576bbe7b48941ebe6e7a7002f, type: 3}

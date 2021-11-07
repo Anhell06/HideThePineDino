@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a779bd0726cca1a4592277ab53aa88b7, type: 3}
   m_Name: CatalogForAnimation
   m_EditorClassIdentifier: 
-  animations: []
+  animations:
+  - {fileID: 11400000, guid: b5233875e841bc149989d3173739cc38, type: 2}

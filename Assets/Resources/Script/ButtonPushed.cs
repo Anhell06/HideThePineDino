@@ -8,8 +8,9 @@ public class ButtonPushed
 {
     private readonly Iplace place;
     private readonly Button[] buttons;
-    public Action<Result> buttonDown;
+    public Action<Result, string> buttonDown;
     public TMP_Text[] textButton = new TMP_Text[3];
+    public string[] texts;
 
     public ButtonPushed(Iplace place, Button[] buttons)
     {
@@ -30,18 +31,20 @@ public class ButtonPushed
     }
     public void Push(int numberButton)
     {
-        buttonDown?.Invoke(place.ResultRelaxing(numberButton));
+        buttonDown?.Invoke(place.ResultRelaxing(numberButton), texts[numberButton]);
         UpdateButton();
     }
 
     private void UpdateButton()
     {
-        string[] texts = place.GetTextForButton();
+        texts = place.GetTextForButton();
         for (int i = 0; i < buttons.Length; i++)
         {
+
             if (texts[i].Length > 36)
             {
                 textButton[i].text = texts[i].Substring(0, 35) + "...";
+
             }
             else
             {

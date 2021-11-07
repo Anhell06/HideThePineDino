@@ -1,20 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeechResolver 
+public class SpeechResolver
 {
     private readonly ButtonPushed buttonPushed;
     private readonly IndicatorUpdater indicatorUpdater;
     private GameObject speechSprite;
     private Result result;
-    private Animation aimator;
+    private GameObject aimator;
     private CatalogAnimation catalogAnimation;
-    public SpeechResolver(ButtonPushed buttonPushed, IndicatorUpdater indicatorUpdater, GameObject speechSprite)
+    private bool firstPlaySpeech = true;
+    public  Action<GameObject> startAnimation;
+    public GameObject anim;
+    public SpeechResolver(ButtonPushed buttonPushed, IndicatorUpdater indicatorUpdater)
     {
         this.buttonPushed = buttonPushed;
         this.indicatorUpdater = indicatorUpdater;
-        this.speechSprite = speechSprite;
         catalogAnimation = Resources.Load<CatalogAnimation>("ScriptableObject/CatalogForAnimation");
 
     }
@@ -22,34 +25,46 @@ public class SpeechResolver
     public void SaySpeech(Result result)
     {
         this.result = result;
+        Debug.Log("rfvtgb");
         PlaySpech();
     }
 
-    private IEnumerable PlaySpech()
+    private void PlaySpech()
     {
+        Debug.Log("asdafs");
+        if (firstPlaySpeech)
+        {
+            buttonPushed.ButtonActive(false);
+            PlayAnimation(result.typeAnimation);
+            firstPlaySpeech = false;
+        }
+        else
+        {
+            buttonPushed.ButtonActive(true);
+            indicatorUpdater.UpdateIndicator(result);
 
-        buttonPushed.ButtonActive(false);
-        PlayAnimation(result.typeAnimation);
-        yield return null;
+            firstPlaySpeech = true;
+        }
 
-        buttonPushed.ButtonActive(true);
-        indicatorUpdater.UpdateIndicator(result);
-        yield break;
 
     }
 
     private void PlayAnimation(animationType type)
     {
-        var anim = catalogAnimation.GetAnimation(type);
-        aimator = anim.animator;
-        aimator.Play(anim.name);
+        anim = catalogAnimation.GetAnimation(type).animator;
+        Debug.Log(anim);
+       
+        anim.SetActive(true);
+        startAnimation?.Invoke(anim);
+
+
 
     }
     public void AnimationEnded()
     {
         PlaySpech();
     }
-    
+
 
 
 

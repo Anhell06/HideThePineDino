@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +13,8 @@ public class GameFactory : MonoBehaviour
     private Button nextScen, exit;
     [SerializeField]
     private GameObject speechSprite;
+    [SerializeField]
+    private TMP_Text SpeechPlace;
 
 
     private Dino dino;
@@ -22,7 +26,7 @@ public class GameFactory : MonoBehaviour
     private Indicator[] indicators = new Indicator[3];
     private int money, helth, stress;
     private Result tempResult;
-    private Button[] buttons;
+    private Button[] buttons = new Button[3];
     private SpeechResolver speechResolver;
 
     private void Start()
@@ -31,7 +35,13 @@ public class GameFactory : MonoBehaviour
         dino.LoadData();
         CreatePlace();
         prefPlace = loadSytem.LoadPlace(dino.CurrentPlace);
-        buttons = FindObjectsOfType<Button>();
+        var buttonForUse = FindObjectsOfType<ButtonForUse>();
+        Debug.Log(buttonForUse.GetType());
+        for (int i = 0; i < buttonForUse.Length; i++)
+        {
+            Debug.Log(i);
+            buttons[i] = buttonForUse[i].GetComponent<Button>();
+        }
         buttonPushed = new ButtonPushed(place, buttons);
         dino.GetData(out money, out helth, out stress);
         indicators = FindObjectsOfType<Indicator>();
@@ -40,16 +50,36 @@ public class GameFactory : MonoBehaviour
             transforms[i] = indicators[i].transform;
         }
         indicatorUpdater = new IndicatorUpdater(money, helth, stress, transforms);
-        speechResolver = new SpeechResolver(buttonPushed, indicatorUpdater, speechSprite);
+        speechResolver = new SpeechResolver(buttonPushed, indicatorUpdater);
         buttonPushed.buttonDown += UpdateData;
+        speechResolver.startAnimation += WaitFiveSeond;
         //nextScen.onClick.AddListener(LoadNextPlace);
         //exit.onClick.AddListener(Exit);
         // animatorResolver = new AnimatorResolver();
     }
 
-    private void UpdateData(Result result)
+    private IEnumerator WaitAnim(GameObject obj)
+    {
+        yield return new WaitForSeconds(3f);
+        SpeechPlace.gameObject.SetActive(false);
+        yield return new WaitForSeconds(5f);
+        speechResolver.AnimationEnded();
+        Destroy(obj);
+
+    }
+    private void WaitFiveSeond(GameObject obj)
+    {
+        var dest = Instantiate(obj);
+        
+        StartCoroutine("WaitAnim", dest);
+        
+    }
+
+    private void UpdateData(Result result, string text)
     {
         speechResolver.SaySpeech(result);
+        SpeechPlace.gameObject.SetActive(true);
+        SpeechPlace.text = text;
     }
 
 
