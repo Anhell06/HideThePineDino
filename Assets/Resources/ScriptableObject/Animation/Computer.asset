@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98ad8f5fd09d4ac47b41c8f2f7a1f26d, type: 3}
+  m_Script: {fileID: 11500000, guid: 197e2809a7fa2f046b71583f8df78f8e, type: 3}
   m_Name: Computer
   m_EditorClassIdentifier: 
-  text: "\u041F\u043E\u0442\u0443\u043F\u0438\u0442\u044C \u0432 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u0435"
-  result:
-    changeMoney: 0
-    changeHelth: -10
-    changeStress: -10
-    typeAnimation: 1
+  AnimName: 
+  typeAnimation: 0
+  animator: {fileID: 0}

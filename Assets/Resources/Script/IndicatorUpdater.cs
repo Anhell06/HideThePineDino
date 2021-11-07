@@ -3,13 +3,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
-public class IndicatorUpdater 
+public class IndicatorUpdater
 {
     private readonly Transform[] indicators;
 
     private Slider indicatorMoney;
     private Slider indicatorHealth;
     private Slider indicatorStress;
+    public Action<bool> EndGame;
 
     public IndicatorUpdater(int money, int health, int stress, Transform[] indicators)
     {
@@ -27,10 +28,10 @@ public class IndicatorUpdater
                     indicatorMoney = i.GetComponent<Slider>();
                     break;
                 case type.health:
-                    indicatorHealth = i.GetComponent<Slider>(); 
+                    indicatorHealth = i.GetComponent<Slider>();
                     break;
                 case type.stress:
-                    indicatorStress = i.GetComponent<Slider>(); 
+                    indicatorStress = i.GetComponent<Slider>();
                     break;
             }
         }
@@ -51,7 +52,15 @@ public class IndicatorUpdater
     {
         SetValue(indicatorMoney, result.changeMoney);
         SetValue(indicatorHealth, result.changeHelth);
-        SetValue(indicatorStress, result.changeStress);       
+        SetValue(indicatorStress, result.changeStress);
+        if (indicatorStress.value == 100 || indicatorHealth.value == 0)
+        {
+            EndGame?.Invoke(false);
+        }
+        if (indicatorMoney.value == 100)
+        {
+            EndGame?.Invoke(true);
+        }
     }
 
     private void SetValue(Slider slider, int value)

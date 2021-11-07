@@ -53,9 +53,18 @@ public class GameFactory : MonoBehaviour
         speechResolver = new SpeechResolver(buttonPushed, indicatorUpdater);
         buttonPushed.buttonDown += UpdateData;
         speechResolver.startAnimation += WaitFiveSeond;
-        //nextScen.onClick.AddListener(LoadNextPlace);
-        //exit.onClick.AddListener(Exit);
-        // animatorResolver = new AnimatorResolver();
+        indicatorUpdater.EndGame += LoadEndScreen;
+        nextScen.onClick.AddListener(LoadNextPlace);
+        exit.onClick.AddListener(Exit);
+    }
+
+    private void LoadEndScreen(bool obj)
+    {
+        if (obj)
+        {
+            SceneManager.LoadScene(3);
+        }
+        SceneManager.LoadScene(4);
     }
 
     private IEnumerator WaitAnim(GameObject obj)
@@ -123,6 +132,9 @@ public class GameFactory : MonoBehaviour
     {
         dino.SaveData();
         buttonPushed.buttonDown -= UpdateData;
+        speechResolver.startAnimation -= WaitFiveSeond;
+        nextScen.onClick.RemoveListener(LoadNextPlace);
+        exit.onClick.RemoveListener(Exit);
     }
 
 }
