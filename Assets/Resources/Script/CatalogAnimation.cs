@@ -11,6 +11,7 @@ public class CatalogAnimation : ScriptableObject
 
     public AnimationForCatalog GetAnimation(animationType type)
     {
+        randomAnimation.Clear();
         foreach (var animation in animations)
         {
             if (type == animation.typeAnimation)
