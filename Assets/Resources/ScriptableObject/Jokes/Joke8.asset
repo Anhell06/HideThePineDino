@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Joke8
   m_EditorClassIdentifier: 
   result:
-    changeMoney: 0
+    changeMoney: 5
     changeHelth: 0
-    changeStress: 0
+    changeStress: 10
     typeAnimation: 0
   text: "\u0421\u0442\u0430\u043B \u043F\u043E\u043A\u0430\u0448\u043B\u0438\u0432\u0430\u0442\u044C.
     \u0414\u043E\u043A\u0442\u043E\u0440 \u043F\u043E\u0441\u043E\u0432\u0435\u0442\u043E\u0432\u0430\u043B

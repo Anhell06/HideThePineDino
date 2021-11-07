@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New Joke SO 7
   m_EditorClassIdentifier: 
   result:
-    changeMoney: 0
+    changeMoney: 5
     changeHelth: 0
     changeStress: 0
     typeAnimation: 0

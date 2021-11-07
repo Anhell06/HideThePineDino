@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: New Joke SO 68
   m_EditorClassIdentifier: 
   result:
-    changeMoney: 0
+    changeMoney: 5
     changeHelth: 0
-    changeStress: 0
+    changeStress: 15
     typeAnimation: 0
-  text: 
+  text: "\u041A\u0430\u043A \u043A\u0430\u0440\u043B\u0438\u043A\u0438 \u043D\u0430\u0437\u044B\u0432\u0430\u044E\u0442
+    \u043C\u0438\u043D\u0438 \u0433\u043E\u043B\u044C\u0444? - \u0413\u043E\u043B\u044C\u0444"
   forPublic: 

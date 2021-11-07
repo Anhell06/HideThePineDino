@@ -15,7 +15,7 @@ MonoBehaviour:
   result:
     changeMoney: 0
     changeHelth: 0
-    changeStress: -20
+    changeStress: 20
     typeAnimation: 0
   text: "\u0413\u043E\u0432\u043E\u0440\u044F\u0442 \u0432 \u0441\u0442\u0440\u043E\u0439\u0431\u0430\u0442\u0430\u0445
     \u0440\u044B\u0436\u0438\u043C-\u043A\u043E\u043D\u043E\u043F\u0430\u0442\u044B\u043C
