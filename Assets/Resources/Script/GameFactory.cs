@@ -7,6 +7,10 @@ public class GameFactory : MonoBehaviour
 {
     [SerializeField]
     private ListTransformLevelSO loadSytem;
+    [SerializeField]
+    private Button nextScen, exit;
+    [SerializeField]
+    private GameObject speechSprite;
 
 
     private Dino dino;
@@ -19,8 +23,7 @@ public class GameFactory : MonoBehaviour
     private int money, helth, stress;
     private Result tempResult;
     private Button[] buttons;
-    private Button nextScen, exit;
-    private AnimatorResolver animatorResolver;
+    private SpeechResolver speechResolver;
 
     private void Start()
     {
@@ -32,21 +35,21 @@ public class GameFactory : MonoBehaviour
         buttonPushed = new ButtonPushed(place, buttons);
         dino.GetData(out money, out helth, out stress);
         indicators = FindObjectsOfType<Indicator>();
-        Debug.Log(indicators.Length);
         for (int i = 0; i < indicators.Length; i++)
         {
             transforms[i] = indicators[i].transform;
         }
         indicatorUpdater = new IndicatorUpdater(money, helth, stress, transforms);
+        speechResolver = new SpeechResolver(buttonPushed, indicatorUpdater, speechSprite);
         buttonPushed.buttonDown += UpdateData;
         //nextScen.onClick.AddListener(LoadNextPlace);
         //exit.onClick.AddListener(Exit);
-       // animatorResolver = new AnimatorResolver();
+        // animatorResolver = new AnimatorResolver();
     }
 
     private void UpdateData(Result result)
     {
-        indicatorUpdater.UpdateIndicator(tempResult);
+        speechResolver.SaySpeech(result);
     }
 
 

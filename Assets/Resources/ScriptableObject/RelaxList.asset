@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0376bab0c57fcee439737d50faf1480a, type: 3}
   m_Name: RelaxList
   m_EditorClassIdentifier: 
+  relaxList:
+  - {fileID: 11400000, guid: a76aa200320bc3940be582aecdd8f7de, type: 2}
+  - {fileID: 11400000, guid: 16d7f6de18d6d404192aab860c59518b, type: 2}
+  - {fileID: 11400000, guid: 2cde37299aea8c445b02dbb9ed423179, type: 2}
+  - {fileID: 11400000, guid: f852b852e9ae74f489defbbff10e0687, type: 2}
+  - {fileID: 11400000, guid: 4cc553970b1458447be7f5f12b8c664b, type: 2}

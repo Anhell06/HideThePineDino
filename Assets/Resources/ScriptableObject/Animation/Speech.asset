@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112f599417e725d4e9e7e649926222fc, type: 3}
-  m_Name: Level
+  m_Script: {fileID: 11500000, guid: 197e2809a7fa2f046b71583f8df78f8e, type: 3}
+  m_Name: Speech
   m_EditorClassIdentifier: 
-  levelList:
-  - {fileID: 2344686010029568505, guid: 8b7666f1f498aad4a89f7089af72b59b, type: 3}
-  - {fileID: 6316540407268945225, guid: 7b72f1fff3c433947a46c599cccfa4e0, type: 3}
+  AnimName: 
+  typeAnimation: 0
+  animator: {fileID: 0}
